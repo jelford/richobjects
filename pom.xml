@@ -6,12 +6,20 @@
 
     <groupId>com.jameselford.richobject</groupId>
     <artifactId>richobject-repositories</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.1.0</version>
 
     <properties>
         <java.version>1.8</java.version>
         <spring.version>4.1.2.BUILD-SNAPSHOT</spring.version>
     </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>bintray-jelford-maven-richobjects</id>
+            <name>jelford-maven-richobjects</name>
+            <url>https://api.bintray.com/maven/jelford/maven/richobjects</url>
+        </repository>
+    </distributionManagement>
 
     <build>
         <plugins>
@@ -22,6 +30,34 @@
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <!-- Restrict execution of source compilation to install -->
+                        <phase>install</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
             <plugin>

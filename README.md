@@ -1,5 +1,12 @@
 # richobject
 
+## Unmaintained
+
+The code in this repository is not maintained, and serves as an example only. In particular, security patches are not
+applied for out-of-date dependencies, and tools like GitHub's dependabot are not running.
+
+### Overview
+
 `richobject` is an experiment to create a spring-data repository for constructing repositories that provide rich objects,
 with dependency-injected collaborators that allow them to take part in the full range of object-oriented interactions.
 
